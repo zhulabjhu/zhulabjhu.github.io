@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research · Zhu Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #002D72; --navy-dark: #001845; --navy-deeper: #00102e;
+  --navy-mid: #0a3d8f; --navy-light: #1a4fa0;
+  --slate-mid: #c5d0e3; --slate-dark: #8a9bbf;
+  --white: #fff; --off-white: #f7f9fc;
+  --text: #1a2340; --text-muted: #4a5568; --text-faint: #8a9bbf; --border: #dde3ef;
+}
+html { overflow-x: hidden; }
+body { font-family: 'Inter', sans-serif; font-weight: 300; color: var(--text); background: var(--off-white); margin: 0; }
+@keyframes page-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+body { animation: page-in 0.5s ease forwards; }
+
+/* NAV */
+nav {
+  background: var(--navy-deeper);
+  padding: 0 3rem; display: flex; align-items: center; justify-content: space-between;
+  height: 64px; position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+}
+.nav-logo { font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 500; color: white; letter-spacing: 0.01em; text-decoration: none; }
+.nav-logo span { color: var(--slate-mid); font-weight: 400; font-style: normal; }
+.nav-tabs { display: flex; list-style: none; gap: 2.5rem; align-items: center; height: 64px; }
+.nav-tabs a { font-size: 12px; font-weight: 400; color: rgba(255,255,255,0.55); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; border-bottom: 2px solid transparent; padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; white-space: nowrap; }
+.nav-tabs a:hover { color: rgba(255,255,255,0.9); }
+.nav-tabs a.active { color: white; border-bottom-color: white; font-weight: 500; }
+
+/* PAGE */
+main { padding-top: 64px; }
+
+/* HERO BAND */
+.page-hero {
+  background: var(--navy-deeper);
+  padding: 5rem 3rem 4rem;
+  color: white;
+}
+.page-hero-inner { max-width: 960px; margin: 0 auto; }
+.page-eyebrow { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1rem; }
+.page-title { font-family: 'EB Garamond', serif; font-size: clamp(36px, 4vw, 52px); font-weight: 400; letter-spacing: -0.5px; color: white; line-height: 1.1; }
+
+/* ABOUT GRID — dark background to match hero */
+.about-section { background: var(--white); border-bottom: 1px solid var(--border); }
+.about-grid { max-width: 960px; margin: 0 auto; padding: 5rem 3rem; }
+.about-text .section-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy); opacity: 0.6; font-weight: 600; margin-bottom: 1rem; }
+.about-text h2 { font-family: 'EB Garamond', serif; font-size: 38px; font-weight: 400; letter-spacing: -0.5px; color: var(--text); margin-bottom: 1.75rem; line-height: 1.15; }
+.about-text p { font-size: 15px; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.85; }
+.about-text p:last-child { margin-bottom: 0; }
+.about-text em { color: var(--navy); }
+
+/* FOCUS AREA PILLARS — also dark */
+.pillars-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 1.5rem; }
+.pillar {
+  padding: 1.5rem 1.75rem;
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--navy);
+  border-radius: 0 4px 4px 0;
+  cursor: default;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+.pillar:hover {
+  transform: translateX(6px) translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0,45,114,0.1);
+  background: var(--white);
+}
+.pillar h4 { font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 400; color: var(--text); margin-bottom: 0.6rem; }
+.pillar p { font-size: 15px; color: var(--text-muted); line-height: 1.75; margin: 0; }
+
+/* CURRENT PROJECTS — slightly lighter dark */
+.team-photo-section { background: var(--off-white); border-top: 1px solid var(--border); }
+.team-photo-inner { max-width: 960px; margin: 0 auto; padding: 5rem 3rem; }
+.team-photo-inner .section-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy); opacity: 0.6; font-weight: 600; margin-bottom: 0.75rem; }
+.team-photo-inner h2 { font-family: 'EB Garamond', serif; font-size: 34px; font-weight: 400; color: var(--text); margin-bottom: 2.5rem; letter-spacing: -0.3px; }
+
+.project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.project-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--navy);
+  border-radius: 0 0 4px 4px; padding: 2rem;
+  transition: box-shadow 0.3s, transform 0.3s, background 0.3s;
+}
+.project-card:hover { box-shadow: 0 10px 32px rgba(0,45,114,0.1); transform: translateY(-3px); }
+.project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+.project-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: white; background: var(--navy); padding: 4px 12px; border-radius: 2px; }
+.project-pi { font-size: 12px; color: var(--text-faint); font-style: italic; padding-top: 2px; }
+.project-title { font-family: 'EB Garamond', serif; font-size: 20px; font-weight: 400; color: var(--text); line-height: 1.35; margin-bottom: 1rem; }
+.project-body { font-size: 14px; color: var(--text-muted); line-height: 1.8; margin-bottom: 1rem; }
+.project-body:last-of-type { margin-bottom: 1.25rem; }
+.project-meta { display: flex; gap: 1.5rem; flex-wrap: wrap; padding-top: 1rem; border-top: 1px solid var(--border); }
+.project-meta span { font-size: 12px; color: var(--text-faint); font-weight: 400; }
+
+/* FOOTER */
+footer { background: var(--navy-deeper); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.06); }
+footer p { font-size: 12px; color: rgba(255,255,255,0.3); }
+footer a { font-size: 12px; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+footer a:hover { color: rgba(255,255,255,0.7); }
+
+/* PUBLICATIONS IN RESEARCH PAGE */
+.pub-list { display: flex; flex-direction: column; border-top: 1px solid var(--border); margin-top: 0.5rem; }
+.pub-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 28px 1fr; gap: 1.25rem; align-items: start; }
+.pub-num { font-size: 12px; color: var(--text-faint); padding-top: 3px; text-align: right; }
+.pub-title { font-family: 'EB Garamond', serif; font-size: 17px; color: var(--text); line-height: 1.4; margin-bottom: 0.35rem; }
+.pub-meta { font-size: 13px; color: var(--text-faint); }
+.pub-journal { font-style: italic; color: var(--text-muted); }
+.pub-note { font-size: 12px; color: var(--navy); margin-top: 0.2rem; font-style: italic; }
+.tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.5rem; }
+.tag { font-size: 10px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; }
+.tag-cover { color: #854F0B; background: #fffbea; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-left { opacity: 0; transform: translateX(-32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-left.visible { opacity: 1; transform: none; }
+.reveal-right { opacity: 0; transform: translateX(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-right.visible { opacity: 1; transform: none; }
+.pillars-grid .pillar:nth-child(nth-child(1) { transition-delay: 0s; }
+.pillars-grid .pillar:nth-child(nth-child(2) { transition-delay: 0.1s; }
+.pillars-grid .pillar:nth-child(nth-child(3) { transition-delay: 0.2s; }
+.pillars-grid .pillar:nth-child(nth-child(4) { transition-delay: 0.3s; }
+
+@media (max-width: 720px) {
+  nav { padding: 0 1.25rem; } .nav-tabs { gap: 1.25rem; } .nav-tabs a { font-size: 11px; }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; padding: 3.5rem 1.5rem; }
+  .page-hero { padding: 4rem 1.5rem 3rem; }
+  .team-photo-inner { padding: 3.5rem 1.5rem; }
+  .project-grid { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="./">Zhu <span>Lab</span></a>
+  <ul class="nav-tabs">
+    <li><a href="./">Home</a></li>
+    <li><a href="research.html" class="active">Research</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="photos.html">Photos</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="page-eyebrow">Zhu Lab · Johns Hopkins Medicine</p>
+      <h1 class="page-title">Research</h1>
+    </div>
+  </div>
+
+  <!-- ABOUT + PILLARS -->
+  <div class="about-section">
+    <div class="about-grid">
+
+      <p class="section-label reveal" style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--navy);opacity:0.6;font-weight:600;margin-bottom:0.75rem;">Research focus areas</p>
+      <div class="pillars-grid stagger">
+        <div class="pillar">
+          <h4>Stress-induced Psychosocial Behavior</h4>
+          <p>Our lab explores how stress-associated molecular pathways — including gut immune signaling and microglial glutaminase activity — drive depression-relevant behaviors, and works to develop novel therapeutic interventions to reverse them.</p>
+        </div>
+        <div class="pillar">
+          <h4>HIV & CNS Comorbidities</h4>
+          <p>Understanding CNS co-morbidities in people living with HIV is central to our research. We study the pathogenesis of cognitive dysfunction, depression, and sleep deficits — identifying new targets such as glutaminase inhibitors and nSMase2 inhibition.</p>
+        </div>
+        <div class="pillar">
+          <h4>Genetic Factors & Neurodevelopment</h4>
+          <p>Our lab examines how genetic predisposition and environmental exposures — including adolescent cannabis use and chronic stress — synergistically impair cognition and neurodevelopment through convergent inflammatory signaling pathways.</p>
+        </div>
+        <div class="pillar">
+          <h4>Complementary & Integrative Medicine</h4>
+          <p>Drawing on traditional Chinese medicine-based compounds and integrative approaches, we identify novel diagnostics and pharmacological agents with potential for neuropsychiatric and inflammatory conditions.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SELECTED PUBLICATIONS -->
+  <div class="team-photo-section">
+    <div class="team-photo-inner">
+      <p class="section-label reveal">Selected publications</p>
+      <h2 class="reveal">Selected publications</h2>
+      <div class="pub-list reveal">
+
+        <div class="pub-item">
+          <span class="pub-num">1</span>
+          <div>
+            <p class="pub-title">Li Y, Sakamoto S, Smith MD, et al., Zhu X. Sex-specific gut mycobiome dysbiosis activates macrophage dectin-1 signaling to drive neurobehavioral deficits in EcoHIV-infected mice.</p>
+            <p class="pub-meta"><span class="pub-journal">Brain, Behavior and Immunity</span>, 2026</p>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-num">2</span>
+          <div>
+            <p class="pub-title">Loganathan S, Sun M, Lopez CA, et al., Zhu X, Smith D, Brown A. Osteopontin knockdown reverses HIV-induced cognitive deficits and influences motivation-related behavior.</p>
+            <p class="pub-meta"><span class="pub-journal">Brain, Behavior and Immunity</span>, 2026</p>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-num">3</span>
+          <div>
+            <p class="pub-title">Huang M, Li Y, Thomas AG, et al., Zhu X. Inhibition of microglial glutaminase alleviates chronic stress-induced neurobehavioral and cognitive deficits.</p>
+            <p class="pub-meta"><span class="pub-journal">Neurotherapeutics</span>, 2025</p>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-num">4</span>
+          <div>
+            <p class="pub-title">Hasegawa Y, Kim J, Ursini G, et al., Zhu X, Kamiya A. Microglial cannabinoid receptor type 1 mediates social memory deficits in mice produced by adolescent THC exposure and 16p11.2 duplication.</p>
+            <p class="pub-meta"><span class="pub-journal">Nature Communications</span>, 2023</p>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-num">5</span>
+          <div>
+            <div class="tags"><span class="tag tag-cover">Cover Article</span></div>
+            <p class="pub-title">Zhu X, Sakamoto S, Ishii C, et al., Kamiya A. Dectin-1 signaling on colonic γδ T cells promotes psychosocial stress responses.</p>
+            <p class="pub-meta"><span class="pub-journal">Nature Immunology</span>, 2023 Apr;24(4):625–636</p>
+            <p class="pub-note">Featured on the April 2023 cover · Covered by 150+ media outlets worldwide</p>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-num">6</span>
+          <div>
+            <p class="pub-title">Bell B, Hollinger K, Deme P, et al., Zhu X*, Slusher B*. Glutamine antagonist JHU083 improves psychosocial behavior and sleep deficits in EcoHIV-infected mice.</p>
+            <p class="pub-meta"><span class="pub-journal">Brain, Behavior &amp; Immunity – Health</span>, 2022</p>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-num">7</span>
+          <div>
+            <p class="pub-title">Zhu X, Hollinger KR, Huang Y, et al., Slusher BS. Neutral sphingomyelinase 2 inhibition attenuates extracellular vesicle release and improves neurobehavioral deficits in murine HIV.</p>
+            <p class="pub-meta"><span class="pub-journal">Neurobiology of Disease</span>, 2022</p>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-num">8</span>
+          <div>
+            <p class="pub-title">Jouroukhin Y*, Zhu X*, et al., Kamiya A, Pletnikov MV. Adolescent Δ9-THC exposure and astrocyte-specific genetic vulnerability converge on NF-κB-COX-2 signaling to impair memory in adulthood.</p>
+            <p class="pub-meta"><span class="pub-journal">Biological Psychiatry</span>, 2019</p>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-num">9</span>
+          <div>
+            <p class="pub-title">Zhu X, Nedelcovych M, Thomas A, et al., Kamiya A. JHU-083 selectively blocks glutaminase activity in brain CD11b+ cells and prevents depression-associated behaviors induced by chronic social defeat stress.</p>
+            <p class="pub-meta"><span class="pub-journal">Neuropsychopharmacology</span>, 2019</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 Zhu Lab · Johns Hopkins Medicine · Department of Psychiatry & Behavioral Sciences</p>
+  <a href="https://www.hopkinsmedicine.org" target="_blank">Johns Hopkins Medicine</a>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => obs.observe(el));
+document.querySelectorAll('.stagger .pillar').forEach(el => obs.observe(el));
+
+</script>
+</body>
+</html>

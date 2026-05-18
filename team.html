@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team · Zhu Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #002D72; --navy-dark: #001845; --navy-deeper: #00102e; --navy-mid: #0a3d8f;
+  --slate: #e8edf5; --slate-mid: #c5d0e3; --slate-dark: #8a9bbf;
+  --white: #ffffff; --off-white: #f7f9fc; --text: #1a2340; --text-muted: #4a5568; --text-faint: #8a9bbf; --border: #dde3ef;
+}
+body { font-family: 'Inter', sans-serif; font-weight: 300; color: var(--text); background: var(--white); line-height: 1.7; margin: 0; }
+nav { background: rgba(0,16,46,0.92); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); padding: 0 3rem; display: flex; align-items: center; justify-content: space-between; height: 64px; position: fixed; top: 0; left: 0; right: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.nav-logo { font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 500; color: var(--white); letter-spacing: 0.01em; text-decoration: none; }
+.nav-logo span { color: var(--slate-mid); font-weight: 400; font-style: normal; }
+.nav-tabs { display: flex; list-style: none; gap: 2.5rem; align-items: center; height: 64px; }
+.nav-tabs li { display: flex; }
+.nav-tabs a { font-size: 12px; font-weight: 400; color: rgba(255,255,255,0.55); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; border-bottom: 2px solid transparent; transition: color 0.25s, border-color 0.25s; }
+.nav-tabs a:hover { color: rgba(255,255,255,0.9); }
+.nav-tabs a.active { color: white; border-bottom-color: white; font-weight: 500; }
+main { max-width: 960px; margin: 0 auto; padding: 5rem 3rem; padding-top: 140px; }
+.section-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy); font-weight: 600; margin-bottom: 0.75rem; opacity: 0.65; }
+h2 { font-family: 'EB Garamond', serif; font-weight: 400; font-size: 36px; letter-spacing: -0.5px; color: var(--text); margin-bottom: 0.5rem; }
+.intro { font-size: 15px; color: var(--text-muted); margin-bottom: 3rem; }
+.pi-card { background: var(--navy-deeper); border-radius: 3px; padding: 2.5rem; display: flex; gap: 2rem; align-items: flex-start; margin-bottom: 3rem; color: var(--white); }
+.pi-avatar { width: 76px; height: 76px; border-radius: 50%; flex-shrink: 0; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-family: 'EB Garamond', serif; font-size: 26px; color: var(--slate-mid); }
+.pi-tag { font-size: 10px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--slate-dark); font-weight: 500; margin-bottom: 0.4rem; }
+.pi-name { font-family: 'EB Garamond', serif; font-size: 24px; margin-bottom: 0.2rem; font-weight: 400; color: var(--white); }
+.pi-title-text { font-size: 13px; color: rgba(255,255,255,0.45); margin-bottom: 0.75rem; }
+.pi-bio { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.75; }
+.group-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-faint); font-weight: 500; margin-bottom: 1rem; }
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2.5rem; }
+.team-card { background: var(--off-white); border: 1px solid var(--border); border-radius: 3px; padding: 1.75rem 1.5rem; text-align: center; transition: box-shadow 0.2s; }
+.team-card:hover { box-shadow: 0 4px 16px rgba(0,45,114,0.08); }
+.t-avatar { width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-family: 'EB Garamond', serif; font-size: 18px; color: var(--white); background: var(--navy); }
+.t-name { font-family: 'EB Garamond', serif; font-size: 17px; margin-bottom: 0.25rem; font-weight: 400; color: var(--text); }
+.t-role { font-size: 11px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.08em; }
+.t-award { font-size: 12px; color: var(--navy); margin-top: 0.5rem; font-weight: 400; opacity: 0.8; }
+footer { background: var(--navy-deeper); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.06); }
+footer p { font-size: 12px; color: rgba(255,255,255,0.3); }
+.fl a { font-size: 12px; color: rgba(255,255,255,0.3); text-decoration: none; }
+.fl a:hover { color: rgba(255,255,255,0.7); }
+@media (max-width: 720px) {
+  nav { padding: 0 1.5rem; } .nav-tabs a { padding: 0 0.65rem; font-size: 11px; }
+  main { padding: 5rem 1.5rem; padding-top: 96px; } .pi-card { flex-direction: column; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; }
+}
+@keyframes page-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+body { animation: page-in 0.5s ease forwards; }
+@keyframes page-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+body { animation: page-in 0.55s ease forwards; }
+.reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-36px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right { opacity: 0; transform: translateX(36px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+.stagger > *:nth-child(1){ transition-delay:0s; } .stagger > *:nth-child(2){ transition-delay:0.12s; } .stagger > *:nth-child(3){ transition-delay:0.24s; } .stagger > *:nth-child(4){ transition-delay:0.36s; }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="./">Zhu <span>Lab</span></a>
+  <ul class="nav-tabs">
+    <li><a href="./">Home</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="team.html" class="active">Team</a></li>
+    <li><a href="photos.html">Photos</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+<main>
+  <p class="section-label">Our team</p>
+  <div class="pi-card reveal">
+    <div class="pi-avatar">XZ</div>
+    <div>
+      <p class="pi-tag">Principal Investigator</p>
+      <p class="pi-name">Dr. Xiaolei Zhu, M.D., Ph.D.</p>
+      <p class="pi-title-text">Assistant Professor · Department of Psychiatry and Behavioral Sciences · Johns Hopkins University School of Medicine</p>
+      <p class="pi-bio">Dr. Zhu leads the lab's research programme into the neuroimmune mechanisms of psychiatric disease, spanning HIV-associated neurocognitive disorders, the neuropsychiatric effects of chronic stress and adolescent cannabis exposure, and the development of novel pharmacological agents for mental health. His work has appeared in <em>Nature Immunology</em>, <em>Nature Communications</em>, and <em>Science Translational Medicine</em>, among others.</p>
+    </div>
+  </div>
+  <p class="group-label reveal">Postdoctoral researchers</p>
+  <div class="team-grid stagger">
+    <div class="team-card reveal"><div class="t-avatar">NL</div><p class="t-name">Dr. Naigang Li</p><p class="t-role">Postdoctoral Fellow</p></div>
+    <div class="team-card reveal"><div class="t-avatar">YL</div><p class="t-name">Dr. Yannan Li</p><p class="t-role">Postdoctoral Fellow</p><p class="t-award">2024 ICIMH Travel Awardee · 2025 NIMH P30 Pilot Awardee</p></div>
+    <div class="team-card reveal"><div class="t-avatar">JL</div><p class="t-name">Dr. Jiamin Li</p><p class="t-role">Postdoctoral Fellow</p></div>
+  </div>
+  <p class="group-label reveal">Master's students</p>
+  <div class="team-grid stagger">
+    <div class="team-card reveal"><div class="t-avatar">MD</div><p class="t-name">Manjot Dhaliwal</p><p class="t-role">Master's Student</p></div>
+    <div class="team-card reveal"><div class="t-avatar">TS</div><p class="t-name">Tessa Schauermann</p><p class="t-role">Master's Student</p></div>
+    <div class="team-card reveal"><div class="t-avatar">AB</div><p class="t-name">Abdulla Bin Hraiz</p><p class="t-role">Master's Student</p></div>
+  </div>
+  <p class="group-label reveal">Undergraduate researchers</p>
+  <div class="team-grid stagger">
+    <div class="team-card reveal"><div class="t-avatar">RZ</div><p class="t-name">Ryan Zhang</p><p class="t-role">Undergraduate Researcher</p></div>
+    <div class="team-card reveal"><div class="t-avatar">AG</div><p class="t-name">Aunti-fla Gai</p><p class="t-role">Undergraduate Researcher</p></div>
+  </main>
+<footer>
+  <p>© 2026 Zhu Lab · Johns Hopkins Medicine · Department of Psychiatry & Behavioral Sciences</p>
+  <div class="fl"><a href="https://www.hopkinsmedicine.org" target="_blank">Johns Hopkins Medicine</a></div>
+</footer>
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add("visible"); obs.unobserve(e.target); } });
+}, { threshold: 0.08, rootMargin: "0px 0px -50px 0px" });
+document.querySelectorAll(".reveal, .reveal-left, .reveal-right").forEach(el => obs.observe(el));
+// Nav scroll tint
+const nb = document.querySelector("nav");
+window.addEventListener("scroll", () => nb.style.background = window.scrollY > 40 ? "rgba(0,16,46,0.99)" : "rgba(0,16,46,0.92)", {passive:true});
+</script>
+</body>
+</html>

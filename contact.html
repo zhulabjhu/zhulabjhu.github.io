@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact · Zhu Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #002D72; --navy-dark: #001845; --navy-deeper: #00102e; --navy-mid: #0a3d8f;
+  --slate-mid: #c5d0e3; --slate-dark: #8a9bbf;
+  --white: #fff; --off-white: #f7f9fc;
+  --text: #1a2340; --text-muted: #4a5568; --text-faint: #8a9bbf; --border: #dde3ef;
+}
+html { overflow-x: hidden; }
+body { font-family: 'Inter', sans-serif; font-weight: 300; color: var(--text); background: var(--navy-deeper); margin: 0; }
+@keyframes page-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+body { animation: page-in 0.5s ease forwards; }
+
+nav { background: var(--navy-deeper); padding: 0 3rem; display: flex; align-items: center; justify-content: space-between; height: 64px; position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
+.nav-logo { font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 500; color: white; text-decoration: none; }
+.nav-logo span { color: var(--slate-mid); font-style: normal; }
+.nav-tabs { display: flex; list-style: none; gap: 2.5rem; align-items: center; height: 64px; }
+.nav-tabs a { font-size: 12px; color: rgba(255,255,255,0.55); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; border-bottom: 2px solid transparent; padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; white-space: nowrap; }
+.nav-tabs a:hover { color: rgba(255,255,255,0.9); }
+.nav-tabs a.active { color: white; border-bottom-color: white; font-weight: 500; }
+
+main { padding-top: 64px; }
+
+.page-hero { background: var(--navy-deeper); padding: 5rem 3rem 4rem; color: white; }
+.page-hero-inner { max-width: 960px; margin: 0 auto; }
+.page-eyebrow { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1rem; }
+.page-title { font-family: 'EB Garamond', serif; font-size: clamp(36px, 4vw, 52px); font-weight: 400; letter-spacing: -0.5px; color: white; }
+
+/* UNIFIED SECTION */
+.info-section { background: var(--navy-deeper); }
+.info-inner-full { max-width: 960px; margin: 0 auto; padding: 5rem 3rem; }
+.top-row { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-bottom: 4rem; }
+.section-divider { border-top: 1px solid rgba(255,255,255,0.1); margin-bottom: 3.5rem; }
+.section-label { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 600; margin-bottom: 0.75rem; }
+h2 { font-family: 'EB Garamond', serif; font-weight: 400; font-size: 34px; letter-spacing: -0.3px; color: white; margin-bottom: 1.5rem; }
+.contact-blurb { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.85; margin-bottom: 1.75rem; }
+.contact-detail { display: flex; gap: 1.25rem; margin-bottom: 1.1rem; align-items: flex-start; }
+.cdl { font-size: 10px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--slate-mid); min-width: 80px; padding-top: 3px; font-weight: 600; }
+.cdv { font-size: 14px; color: rgba(255,255,255,0.65); }
+.cdv a { color: var(--slate-mid); text-decoration: none; }
+.cdv a:hover { text-decoration: underline; }
+
+/* JOIN FORM */
+.contact-form { display: flex; flex-direction: column; gap: 0.875rem; }
+.contact-form input, .contact-form textarea, .contact-form select {
+  background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); border-radius: 2px;
+  padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300;
+  color: white; outline: none; transition: border-color 0.2s; width: 100%;
+}
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(255,255,255,0.3); }
+.contact-form select { color: rgba(255,255,255,0.5); }
+.contact-form select option { background: var(--navy-deeper); color: white; }
+.contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { border-color: var(--slate-mid); }
+.contact-form textarea { resize: vertical; min-height: 110px; }
+.submit-btn { background: white; color: var(--navy-deeper); border: none; padding: 13px 30px; border-radius: 2px; font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; align-self: flex-start; transition: opacity 0.2s; font-family: 'Inter', sans-serif; }
+.submit-btn:hover { opacity: 0.85; }
+
+/* RECRUIT CARDS */
+.recruit-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; margin-top: 2.5rem; }
+.recruit-card {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-top: 2px solid var(--slate-mid); border-radius: 0 0 3px 3px;
+  padding: 2rem;
+}
+.recruit-card h3 { font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 400; color: white; margin-bottom: 1rem; }
+.recruit-card p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 1.25rem; }
+.recruit-card p:last-of-type { margin-bottom: 0; }
+.status-tag { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 2px; margin-bottom: 1rem; }
+.status-open { background: rgba(100,200,120,0.15); color: #90dfa0; }
+.status-closed { background: rgba(255,200,100,0.12); color: #f0c070; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-left { opacity: 0; transform: translateX(-28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-left.visible { opacity: 1; transform: none; }
+.reveal-right { opacity: 0; transform: translateX(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-right.visible { opacity: 1; transform: none; }
+
+footer { background: var(--navy-deeper); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.06); }
+footer p, footer a { font-size: 12px; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+footer a:hover { color: rgba(255,255,255,0.7); }
+
+@media (max-width: 720px) {
+  nav { padding: 0 1.25rem; } .nav-tabs { gap: 1.25rem; } .nav-tabs a { font-size: 11px; }
+  .top-row { grid-template-columns: 1fr; gap: 3rem; }
+  .info-inner-full { padding: 3.5rem 1.5rem; }
+  .recruit-grid { grid-template-columns: 1fr; }
+  .page-hero { padding: 4rem 1.5rem 3rem; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="./">Zhu <span>Lab</span></a>
+  <ul class="nav-tabs">
+    <li><a href="./">Home</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="photos.html">Photos</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="page-eyebrow">Zhu Lab · Johns Hopkins Medicine</p>
+      <h1 class="page-title">Contact</h1>
+    </div>
+  </div>
+
+  <!-- COMBINED CONTACT + JOIN -->
+  <div class="info-section">
+    <div class="info-inner-full">
+
+      <!-- Top row: contact info + form -->
+      <div class="top-row">
+        <div class="reveal-left">
+          <p class="section-label">Get in touch</p>
+          <h2>Work with us</h2>
+          <p class="contact-blurb">We are always happy to hear from prospective collaborators, students, and researchers interested in our work. Undergraduate students are encouraged to reach out directly to Dr. Zhu at <a href="mailto:xzhu31@jhmi.edu" style="color:var(--slate-mid);">xzhu31@jhmi.edu</a>. We are not currently recruiting postdoctoral fellows or PhD students, but welcome interest forms — we will be in touch when positions open.</p>
+          <div class="contact-detail">
+            <span class="cdl">Institution</span>
+            <span class="cdv">Johns Hopkins Medicine<br>Department of Psychiatry &amp; Behavioral Sciences</span>
+          </div>
+          <div class="contact-detail">
+            <span class="cdl">Location</span>
+            <span class="cdv">Baltimore, Maryland</span>
+          </div>
+          <div class="contact-detail">
+            <span class="cdl">Email</span>
+            <span class="cdv"><a href="mailto:xzhu31@jhmi.edu">xzhu31@jhmi.edu</a></span>
+          </div>
+        </div>
+        <div class="contact-form reveal-right">
+          <input type="text" placeholder="Your name">
+          <input type="email" placeholder="Email address">
+          <select>
+            <option value="" disabled selected>I am a...</option>
+            <option>Prospective postdoctoral researcher</option>
+            <option>Prospective PhD student</option>
+            <option>Prospective undergraduate researcher</option>
+            <option>Research collaborator</option>
+            <option>Other</option>
+          </select>
+          <textarea placeholder="Tell us about yourself and your interest in the lab..."></textarea>
+          <button class="submit-btn">Send message</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 Zhu Lab · Johns Hopkins Medicine · Department of Psychiatry &amp; Behavioral Sciences</p>
+  <a href="https://www.hopkinsmedicine.org" target="_blank">Johns Hopkins Medicine</a>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
